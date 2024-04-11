@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 use function Laravel\Prompts\password;
 
-class DatabaseSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -18,9 +18,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-           'password'=>Hash::make('12345')
+            'name' => 'payal',
+            'email' => 'payal@staqo.com',
+           'password'=>Hash::make('1234567')
         ]);
     }
 }

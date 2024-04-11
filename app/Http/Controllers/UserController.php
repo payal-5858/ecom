@@ -10,10 +10,12 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+
+
 function login(Request $req ){
-    $user= User::where(['email'=>$req->email])->first();
-    if(!$user  || Hash::check($req->password,$user->password)){
-        return "user name or password not match";
+    $user= User::where('email',$req->email)->first();
+    if(!$user  || !Hash::check($req->password,$user->password)){
+        return "Username or password incorrect";
     }else{
         $req->session()->put('user',$user);
         return redirect('/');
@@ -21,4 +23,5 @@ function login(Request $req ){
 }
 
    }
+
 
